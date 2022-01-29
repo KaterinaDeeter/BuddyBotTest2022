@@ -69,11 +69,11 @@ public class RobotContainer {
   private void configureButtonBindings() {
 
     // Extend upper piston when left bumper is down
-    new JoystickButton(m_Gamepad, 5).whenPressed(new InstantCommand(m_Pistons::extendUpper, m_Pistons))
+    new JoystickButton(m_Gamepad, 3).whenPressed(new InstantCommand(m_Pistons::extendUpper, m_Pistons))
                                     .whenReleased(new InstantCommand(m_Pistons::retractUpper, m_Pistons));
 
     // Extend lower piston when left bumper is down
-    new JoystickButton(m_Gamepad, 6).whenPressed(new InstantCommand(m_Pistons::extendLower, m_Pistons))
+    new JoystickButton(m_Gamepad, 2).whenPressed(new InstantCommand(m_Pistons::extendLower, m_Pistons))
                                     .whenReleased(new InstantCommand(m_Pistons::retractLower, m_Pistons));                                    
 
   }

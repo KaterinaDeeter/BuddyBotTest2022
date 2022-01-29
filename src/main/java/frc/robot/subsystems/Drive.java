@@ -23,8 +23,8 @@ public class Drive extends SubsystemBase {
    */
   private final CANSparkMax m_LeftMotor = new CANSparkMax(DriveConstants.kLeftDriveMotorCANID,MotorType.kBrushed);
   private final CANSparkMax m_RightMotor = new CANSparkMax(DriveConstants.kRightDriveMotorCANID,MotorType.kBrushed);
-  private final RelativeEncoder m_LeftEncoder; //= new RelativeEncoder(m_LeftMotor, EncoderType.kQuadrature, DriveConstants.kEncoderCountsPerRev);
-  private final RelativeEncoder m_RightEncoder; //= new RelativeEncoder(m_RightMotor, EncoderType.kQuadrature, DriveConstants.kEncoderCountsPerRev);
+  private final RelativeEncoder m_LeftEncoder; 
+  private final RelativeEncoder m_RightEncoder; 
   private final DifferentialDrive m_DriveController;
  
 
