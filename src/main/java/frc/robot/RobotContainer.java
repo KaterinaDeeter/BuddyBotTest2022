@@ -10,10 +10,13 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.commands.Autonomous;
 import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 
@@ -25,9 +28,8 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  
+ 
   // subsystems
-
   private final Drive m_Drive = new Drive();
   private final TestMotors m_TestMotors = new TestMotors();
   private final Pistons m_Pistons = new Pistons();
@@ -35,18 +37,33 @@ public class RobotContainer {
   private final LimitSwitches m_limitSwitches = new LimitSwitches();
   
   // commands
-
+  public final Autonomous m_Auto = new Autonomous();
+  //private final ParallelCommandGroup m_Auto;
 
   // OI
   private final Joystick m_Gamepad = new Joystick(0);
  
  
 
-  /**
-   * The container for the robot.  Contains subsystems, OI devices, and commands.
-   */
+
   public RobotContainer() {
- 
+    SmartDashboard.putData("Autonomous Run", new Autonomous());
+    //m_Auto = new ParallelCommandGroup();
+    
+    /*//Sample Drive Command:
+    double speed = -m_Gamepad.getRawAxis(1)* 0.6;
+    double turn = m_Gamepad.getRawAxis(4)* 0.3;
+
+    double left = speed + turn;
+    double right = speed - turn;
+
+    leftMotor = new CANSparkMax(DriveConstants.kLeftDriveMotorCANID,MotorType.kBrushed); //Initiates leftMotor
+    rightMotor = new CANSparkMax(DriveConstants.kLeftDriveMotorCANID,MotorType.kBrushed); //Initiates rightMotor
+    leftMotor.set(left); // Sets speed
+    rightMotor.set(-right); // Sets speed
+    */
+
+
     // Configure the button bindings
     configureButtonBindings();
 
@@ -86,6 +103,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
      // An ExampleCommand will run in autonomous
-     return null;  
+    return m_Auto;  
   }
 }

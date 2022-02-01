@@ -10,8 +10,6 @@ import frc.robot.Constants.PistonsConstants;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
-import edu.wpi.first.wpilibj.PowerDistribution.ModuleType;
-import com.ctre.phoenix.motorcontrol.can.*;
 
 public class Pistons extends SubsystemBase {
   /**
